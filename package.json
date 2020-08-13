@@ -1,39 +1,55 @@
 {
-  "name": "ice-cream-lord",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "ice-cream-lord",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "@types/jest": "^24.0.0",
+        "@types/node": "^12.0.0",
+        "@types/react": "^16.9.0",
+        "@types/react-dom": "^16.9.0",
+        "@types/testing-library__dom": "^7.5.0",
+        "firebase": "^7.18.0",
+        "firebase-tools": "^8.7.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-scripts": "3.4.3",
+        "typescript": "~3.7.2"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build:ui": "react-scripts build",
+        "build:functions": "cd functions && yarn build && cd ..",
+        "build:all": "yarn build:ui && yarn build:functions",
+        "eject": "react-scripts eject",
+        "test": "react-scripts test",
+        "test:ci": "CI=true npm test -- --coverage",
+        "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+        "test-build": "firebase serve --only hosting",
+        "deploy": "yarn build:all && yarn deploy:all",
+        "deploy:all": "./node_modules/.bin/firebase deploy --only hosting,functions",
+        "deploy:hosting": "./node_modules/.bin/firebase deploy --only hosting",
+        "deploy:functions": "./node_modules/.bin/firebase deploy --only functions",
+        "emulator:prepare": "export GOOGLE_APPLICATION_CREDENTIALS=\"fire-sdk.json\"",
+        "emulator:start": "yarn emulator:prepare && firebase emulators:start",
+        "emulator:start:hosting": "yarn emulator:prepare && firebase emulators:start --only hosting",
+        "emulator:start:functions": "yarn emulator:prepare && firebase emulators:start --only functions"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }
