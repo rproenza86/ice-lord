@@ -10,20 +10,24 @@ import { save, load } from 'redux-localstorage-simple';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { fetchProducts } from './redux/actions/productActions';
+import { findIceCreamStores } from './redux/actions/findIceCreamStores';
 import rootReducer from './redux/reducers/rootReducer';
-import products from './data/products.json';
 
 // import './common/style/index.css';
 import './assets/scss/style.scss';
 import App from './components/App/App';
+import { shopsDetailsMiddleware } from './redux/middleware/shopsDetailsMiddleware';
 
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer, load(), composeWithDevTools(applyMiddleware(thunk, save())));
+const store = createStore(
+    rootReducer,
+    load(),
+    composeWithDevTools(applyMiddleware(thunk, save(), shopsDetailsMiddleware))
+);
 
-// fetch products from json file
-store.dispatch((fetchProducts as any)(products));
+// fetch initial data
+store.dispatch((findIceCreamStores as any)());
 
 ReactDOM.render(
     <Provider store={store}>

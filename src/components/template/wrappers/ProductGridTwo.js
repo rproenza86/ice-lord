@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { getProducts } from '../../../helpers/product';
 import ProductGridSingleTwo from '../product/ProductGridSingleTwo';
 
 import { addToCart } from '../../../redux/actions/cartActions';
@@ -71,12 +70,13 @@ ProductGridTwo.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        products: getProducts(
-            state.productData.products,
-            ownProps.category,
-            ownProps.type,
-            ownProps.limit
-        ),
+        // products: getProducts(
+        //     state.shops,
+        //     ownProps.category,
+        //     ownProps.type,
+        //     ownProps.limit
+        // ),
+        products: state.shops,
         currency: state.currencyData,
         cartItems: state.cartData,
         wishlistItems: state.wishlistData,

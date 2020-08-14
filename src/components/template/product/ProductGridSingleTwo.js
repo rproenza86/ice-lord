@@ -8,7 +8,6 @@ import ProductModal from './ProductModal';
 
 const ProductGridSingleTwo = ({
     product,
-    currency,
     addToCart,
     addToWishlist,
     addToCompare,
@@ -24,8 +23,13 @@ const ProductGridSingleTwo = ({
     const { addToast } = useToasts();
 
     const discountedPrice = getDiscountPrice(product.price, product.discount);
-    const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
-    const finalDiscountedPrice = +(discountedPrice * currency.currencyRate).toFixed(2);
+    const finalProductPrice = 0;
+    const finalDiscountedPrice = 0;
+
+    const imgUrl = product.image_url
+        ? product.image_url
+        : process.env.PUBLIC_URL + product.image[0];
+    const hoverImgUrl = product.photos && product.photos.length ? product.photos[1] : '';
 
     return (
         <Fragment>
@@ -41,17 +45,9 @@ const ProductGridSingleTwo = ({
                 >
                     <div className="product-img">
                         <Link to={process.env.PUBLIC_URL + '/product/' + product.id}>
-                            <img
-                                className="default-img"
-                                src={process.env.PUBLIC_URL + product.image[0]}
-                                alt=""
-                            />
-                            {product.image.length > 1 ? (
-                                <img
-                                    className="hover-img"
-                                    src={process.env.PUBLIC_URL + product.image[1]}
-                                    alt=""
-                                />
+                            <img className="default-img" src={imgUrl} alt="" />
+                            {hoverImgUrl ? (
+                                <img className="hover-img" src={hoverImgUrl} alt="" />
                             ) : (
                                 ''
                             )}
@@ -82,23 +78,10 @@ const ProductGridSingleTwo = ({
                             }`}
                         >
                             <h3>
-                                <Link to={process.env.PUBLIC_URL + '/product/' + product.id}>
-                                    {product.name}
-                                </Link>
+                                <Link to={product.url}>{product.name}</Link>
                             </h3>
                             <div className="price-2">
-                                {discountedPrice !== null ? (
-                                    <Fragment>
-                                        <span>
-                                            {currency.currencySymbol + finalDiscountedPrice}
-                                        </span>{' '}
-                                        <span className="old">
-                                            {currency.currencySymbol + finalProductPrice}
-                                        </span>
-                                    </Fragment>
-                                ) : (
-                                    <span>{currency.currencySymbol + finalProductPrice} </span>
-                                )}
+                                <span>Rating</span> <span className="new">{product.rating}</span>
                             </div>
                         </div>
                         <div className="pro-wishlist-2">
@@ -123,7 +106,7 @@ const ProductGridSingleTwo = ({
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 product={product}
-                currency={currency}
+                currency={{}}
                 discountedprice={discountedPrice}
                 finalproductprice={finalProductPrice}
                 finaldiscountedprice={finalDiscountedPrice}

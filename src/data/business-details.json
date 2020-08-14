@@ -1,0 +1,93 @@
+{
+    "id": "v21jReWx5dd5KuQ0QS6Dog",
+    "alias": "screamn-nuts-alpharetta",
+    "name": "Scream'n Nuts",
+    "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/gc6_irJewi3Hxazlp5WrPQ/o.jpg",
+    "is_claimed": true,
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/screamn-nuts-alpharetta?adjust_creative=HQKczInaAod3mrTeBk9Gkw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HQKczInaAod3mrTeBk9Gkw",
+    "phone": "+14044744766",
+    "display_phone": "(404) 474-4766",
+    "review_count": 341,
+    "categories": [
+        {
+            "alias": "donuts",
+            "title": "Donuts"
+        },
+        {
+            "alias": "icecream",
+            "title": "Ice Cream & Frozen Yogurt"
+        },
+        {
+            "alias": "coffee",
+            "title": "Coffee & Tea"
+        }
+    ],
+    "rating": 4.5,
+    "location": {
+        "address1": "5950 North Point Pkwy",
+        "address2": "",
+        "address3": null,
+        "city": "Alpharetta",
+        "zip_code": "30022",
+        "country": "US",
+        "state": "GA",
+        "display_address": ["5950 North Point Pkwy", "Alpharetta, GA 30022"],
+        "cross_streets": ""
+    },
+    "coordinates": {
+        "latitude": 34.049333,
+        "longitude": -84.281247
+    },
+    "photos": [
+        "https://s3-media3.fl.yelpcdn.com/bphoto/gc6_irJewi3Hxazlp5WrPQ/o.jpg",
+        "https://s3-media1.fl.yelpcdn.com/bphoto/nkq7yty5ID9sLVFExs4xmg/o.jpg",
+        "https://s3-media3.fl.yelpcdn.com/bphoto/ImceEQlzJk5WR_d0nw9BcA/o.jpg"
+    ],
+    "price": "$",
+    "hours": [
+        {
+            "open": [
+                {
+                    "is_overnight": false,
+                    "start": "0700",
+                    "end": "1800",
+                    "day": 1
+                },
+                {
+                    "is_overnight": false,
+                    "start": "0700",
+                    "end": "1800",
+                    "day": 2
+                },
+                {
+                    "is_overnight": false,
+                    "start": "0700",
+                    "end": "1800",
+                    "day": 3
+                },
+                {
+                    "is_overnight": false,
+                    "start": "0700",
+                    "end": "1800",
+                    "day": 4
+                },
+                {
+                    "is_overnight": false,
+                    "start": "0700",
+                    "end": "1800",
+                    "day": 5
+                },
+                {
+                    "is_overnight": false,
+                    "start": "0800",
+                    "end": "1700",
+                    "day": 6
+                }
+            ],
+            "hours_type": "REGULAR",
+            "is_open_now": false
+        }
+    ],
+    "transactions": ["delivery", "pickup"]
+}

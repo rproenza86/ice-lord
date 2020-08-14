@@ -1,0 +1,167 @@
+{
+    "businesses": [
+        {
+            "id": "v21jReWx5dd5KuQ0QS6Dog",
+            "alias": "screamn-nuts-alpharetta",
+            "name": "Scream'n Nuts",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/gc6_irJewi3Hxazlp5WrPQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/screamn-nuts-alpharetta?adjust_creative=HQKczInaAod3mrTeBk9Gkw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HQKczInaAod3mrTeBk9Gkw",
+            "review_count": 341,
+            "categories": [
+                {
+                    "alias": "donuts",
+                    "title": "Donuts"
+                },
+                {
+                    "alias": "icecream",
+                    "title": "Ice Cream & Frozen Yogurt"
+                },
+                {
+                    "alias": "coffee",
+                    "title": "Coffee & Tea"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.049333,
+                "longitude": -84.281247
+            },
+            "transactions": ["delivery", "pickup"],
+            "price": "$",
+            "location": {
+                "address1": "5950 North Point Pkwy",
+                "address2": "",
+                "address3": null,
+                "city": "Alpharetta",
+                "zip_code": "30022",
+                "country": "US",
+                "state": "GA",
+                "display_address": ["5950 North Point Pkwy", "Alpharetta, GA 30022"]
+            },
+            "phone": "+14044744766",
+            "display_phone": "(404) 474-4766",
+            "distance": 2264.570336710685
+        },
+        {
+            "id": "busZqvXX73idGQMLagMtpQ",
+            "alias": "mr-tinos-ice-cream-roswell",
+            "name": "Mr Tinos Ice Cream",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/CLCvvmbQsQLUZAUen4hPgQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/mr-tinos-ice-cream-roswell?adjust_creative=HQKczInaAod3mrTeBk9Gkw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HQKczInaAod3mrTeBk9Gkw",
+            "review_count": 32,
+            "categories": [
+                {
+                    "alias": "icecream",
+                    "title": "Ice Cream & Frozen Yogurt"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 34.031355,
+                "longitude": -84.341339
+            },
+            "transactions": ["delivery"],
+            "price": "$$",
+            "location": {
+                "address1": "1255 Grimes Bridge Rd",
+                "address2": "Ste E",
+                "address3": "",
+                "city": "Roswell",
+                "zip_code": "30075",
+                "country": "US",
+                "state": "GA",
+                "display_address": ["1255 Grimes Bridge Rd", "Ste E", "Roswell, GA 30075"]
+            },
+            "phone": "+14045036233",
+            "display_phone": "(404) 503-6233",
+            "distance": 7063.812540049461
+        },
+        {
+            "id": "LKQd5rGpjsoL-FOvfbbdEQ",
+            "alias": "wheres-the-scoop-johns-creek",
+            "name": "Where's The Scoop?",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/xOly4AygttU9bumhyq13xQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/wheres-the-scoop-johns-creek?adjust_creative=HQKczInaAod3mrTeBk9Gkw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HQKczInaAod3mrTeBk9Gkw",
+            "review_count": 119,
+            "categories": [
+                {
+                    "alias": "icecream",
+                    "title": "Ice Cream & Frozen Yogurt"
+                },
+                {
+                    "alias": "bubbletea",
+                    "title": "Bubble Tea"
+                },
+                {
+                    "alias": "coffee",
+                    "title": "Coffee & Tea"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0220696,
+                "longitude": -84.2697012
+            },
+            "transactions": ["delivery", "pickup"],
+            "price": "$",
+            "location": {
+                "address1": "9925 Haynes Bridge Rd",
+                "address2": "Ste 510",
+                "address3": "",
+                "city": "Johns Creek",
+                "zip_code": "30022",
+                "country": "US",
+                "state": "GA",
+                "display_address": ["9925 Haynes Bridge Rd", "Ste 510", "Johns Creek, GA 30022"]
+            },
+            "phone": "+16783953650",
+            "display_phone": "(678) 395-3650",
+            "distance": 5302.998379895488
+        },
+        {
+            "id": "0RDGOFcgDhzry4MDopu0-A",
+            "alias": "jenis-splendid-ice-creams-alpharetta-2",
+            "name": "Jeni's Splendid Ice Creams",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/iz7JygR7ECMDwqpX4fUK9Q/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/jenis-splendid-ice-creams-alpharetta-2?adjust_creative=HQKczInaAod3mrTeBk9Gkw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HQKczInaAod3mrTeBk9Gkw",
+            "review_count": 159,
+            "categories": [
+                {
+                    "alias": "icecream",
+                    "title": "Ice Cream & Frozen Yogurt"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.070811,
+                "longitude": -84.273856
+            },
+            "transactions": ["delivery", "pickup"],
+            "price": "$$",
+            "location": {
+                "address1": "800 Avalon Blvd",
+                "address2": null,
+                "address3": "",
+                "city": "Alpharetta",
+                "zip_code": "30009",
+                "country": "US",
+                "state": "GA",
+                "display_address": ["800 Avalon Blvd", "Alpharetta, GA 30009"]
+            },
+            "phone": "+16788941483",
+            "display_phone": "(678) 894-1483",
+            "distance": 601.5391421701563
+        }
+    ],
+    "total": 101,
+    "region": {
+        "center": {
+            "longitude": -84.28024291992188,
+            "latitude": 34.06968179772272
+        }
+    }
+}

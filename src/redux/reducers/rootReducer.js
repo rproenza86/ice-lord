@@ -1,4 +1,4 @@
-import currencyReducer from "./currencyReducer";
+import shopsReducer from "./shopsReducer";
 import productReducer from "./productReducer";
 import cartReducer from "./cartReducer";
 import wishlistReducer from "./wishlistReducer";
@@ -8,7 +8,7 @@ import { createMultilanguageReducer } from "redux-multilanguage";
 
 const rootReducer = combineReducers({
   multilanguage: createMultilanguageReducer({ currentLanguageCode: "en" }),
-  currencyData: currencyReducer,
+  shops: shopsReducer,
   productData: productReducer,
   cartData: cartReducer,
   wishlistData: wishlistReducer,
