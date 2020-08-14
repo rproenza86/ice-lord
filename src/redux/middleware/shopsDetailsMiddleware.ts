@@ -6,7 +6,11 @@ export const shopsDetailsMiddleware = (store: any) => (next: any) => async (acti
 
     switch (action.type) {
         case FETCH_STORES_SUCCESS: {
-            action.payload.shops.map((shop: any) => store.dispatch(getIceCreamStoreDetails(shop)));
+            if (action.payload && action.payload.shops) {
+                action.payload.shops.map((shop: any) =>
+                    store.dispatch(getIceCreamStoreDetails(shop))
+                );
+            }
             break;
         }
 

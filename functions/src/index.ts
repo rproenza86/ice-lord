@@ -8,12 +8,19 @@ const cors = require('cors')({ origin: true });
 
 export const findIceCreamStores = functions.https.onRequest((request, response) => {
     return cors(request, response, () => {
+        const {
+            sort_by = 'rating',
+            limit = 4,
+            term = 'ice cream shops',
+            location = 'Alpharetta, GA',
+        } = request.query;
+
         return client
             .search({
-                term: 'ice cream shops',
-                location: 'Alpharetta, GA',
-                sort_by: 'rating',
-                limit: 4,
+                term,
+                location,
+                sort_by,
+                limit,
             })
             .then((data: any) => {
                 response.send(data.jsonBody as YelpBusinesses);
@@ -27,7 +34,7 @@ export const findIceCreamStores = functions.https.onRequest((request, response) 
 
 export const getIceCreamStoreDetail = functions.https.onRequest((request, response) => {
     return cors(request, response, () => {
-        const businessId = 'v21jReWx5dd5KuQ0QS6Dog';
+        const { businessId } = request.query;
 
         return client
             .business(businessId)

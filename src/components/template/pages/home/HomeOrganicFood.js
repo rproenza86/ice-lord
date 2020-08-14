@@ -35,7 +35,7 @@ const HomeOrganicFood = () => {
                 {/* tab product */}
                 <TabProductFour
                     spaceBottomClass="pb-100"
-                    category="organic food"
+                    category="rating"
                     productTabClass="product-tab-fruits"
                 />
             </Layout>
