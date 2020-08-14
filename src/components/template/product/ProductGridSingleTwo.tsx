@@ -1,8 +1,17 @@
-import PropTypes from 'prop-types';
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Shop } from '../../../redux/reducers/shops/types';
+
 import ProductModal from './ProductModal';
+
+type ProductGridSingleTwoProps = {
+    product: Shop;
+    sliderClassName: string;
+    spaceBottomClass: string;
+    colorClass: string;
+    titlePriceClass: string;
+};
 
 const ProductGridSingleTwo = ({
     product,
@@ -10,7 +19,7 @@ const ProductGridSingleTwo = ({
     spaceBottomClass,
     colorClass,
     titlePriceClass,
-}) => {
+}: ProductGridSingleTwoProps) => {
     const [modalShow, setModalShow] = useState(false);
 
     const imgUrl = product.image_url ? product.image_url : '';
@@ -43,18 +52,6 @@ const ProductGridSingleTwo = ({
                                 ''
                             )}
                         </Link>
-                        {product.discount || product.new ? (
-                            <div className="product-img-badges">
-                                {product.discount ? (
-                                    <span className="pink">-{product.discount}%</span>
-                                ) : (
-                                    ''
-                                )}
-                                {product.new ? <span className="purple">New</span> : ''}
-                            </div>
-                        ) : (
-                            ''
-                        )}
 
                         <div className="product-action-2">
                             <button onClick={() => setModalShow(true)} title="Quick View">
@@ -109,21 +106,6 @@ const ProductGridSingleTwo = ({
             <ProductModal show={modalShow} onHide={() => setModalShow(false)} product={product} />
         </Fragment>
     );
-};
-
-ProductGridSingleTwo.propTypes = {
-    addToCart: PropTypes.func,
-    addToCompare: PropTypes.func,
-    addToWishlist: PropTypes.func,
-    cartItem: PropTypes.object,
-    compareItem: PropTypes.object,
-    currency: PropTypes.object,
-    product: PropTypes.object,
-    sliderClassName: PropTypes.string,
-    spaceBottomClass: PropTypes.string,
-    colorClass: PropTypes.string,
-    titlePriceClass: PropTypes.string,
-    wishlistItem: PropTypes.object,
 };
 
 export default ProductGridSingleTwo;

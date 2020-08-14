@@ -1,15 +1,21 @@
-import PropTypes from 'prop-types';
 import React, { Fragment, useState, useEffect } from 'react';
 import Swiper from 'react-id-swiper';
 import { Modal } from 'react-bootstrap';
 
 import Rating from './ProductRating';
+import { Shop } from '../../../redux/reducers/shops/types';
 
-function ProductModal(props) {
-    const { product } = props;
+interface IBaseSwiper {
+    controller: { control: any };
+}
+interface IGallerySwiper extends IBaseSwiper {}
+interface IThumbnailSwiper extends IBaseSwiper {}
 
-    const [gallerySwiper, getGallerySwiper] = useState(null);
-    const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
+type ProductModalProps = { product: Shop; show: boolean; onHide: () => void };
+
+function ProductModal({ product, show, onHide }: ProductModalProps) {
+    const [gallerySwiper, getGallerySwiper] = useState<IGallerySwiper | null>(null);
+    const [thumbnailSwiper, getThumbnailSwiper] = useState<IThumbnailSwiper | null>(null);
 
     useEffect(() => {
         if (
@@ -57,11 +63,7 @@ function ProductModal(props) {
 
     return (
         <Fragment>
-            <Modal
-                show={props.show}
-                onHide={props.onHide}
-                className="product-quickview-modal-wrapper"
-            >
+            <Modal show={show} onHide={onHide} className="product-quickview-modal-wrapper">
                 <Modal.Header closeButton></Modal.Header>
 
                 <div className="modal-body">
@@ -167,11 +169,5 @@ function ProductModal(props) {
         </Fragment>
     );
 }
-
-ProductModal.propTypes = {
-    onHide: PropTypes.func,
-    product: PropTypes.object,
-    show: PropTypes.bool,
-};
 
 export default ProductModal;
