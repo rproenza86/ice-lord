@@ -2,9 +2,9 @@ import React from 'react';
 
 type SectionTitleThreeProps = {
     positionClass: string;
-    spaceClass: string;
+    spaceClass?: string;
     titleText: string;
-    colorClass: string;
+    colorClass?: string;
 };
 
 const SectionTitleThree = ({

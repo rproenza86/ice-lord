@@ -5,8 +5,7 @@ import { animateScroll } from 'react-scroll';
 type FooterProps = {
     backgroundColorClass: string;
     copyrightColorClass: string;
-    footerLogo: string;
-    backgroundImage: string;
+    backgroundImage?: string;
     footerTopBackgroundColorClass: string;
     footerTopSpaceBottomClass: string;
     footerTopSpaceTopClass: string;
@@ -22,7 +21,6 @@ const Footer = ({
     footerTopBackgroundColorClass,
     footerTopSpaceTopClass,
     footerTopSpaceBottomClass,
-    footerLogo,
     backgroundImage,
 }: FooterProps) => {
     const [scroll, setScroll] = useState(0);

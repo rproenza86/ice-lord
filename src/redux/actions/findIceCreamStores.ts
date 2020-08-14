@@ -5,7 +5,7 @@ import { Shop } from '../reducers/shops/types';
 
 export const FETCH_STORES_SUCCESS = 'FETCH_STORES_SUCCESS';
 
-interface FindIceCreamStoresAction {
+export interface FindIceCreamStoresAction {
     type: typeof FETCH_STORES_SUCCESS;
     payload: { total: number; shops: Shop[] };
 }

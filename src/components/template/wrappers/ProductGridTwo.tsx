@@ -6,12 +6,12 @@ import ProductGridSingleTwo from '../product/ProductGridSingleTwo';
 import { RootState } from '../../../redux/reducers/rootReducer';
 
 type ProductGridTwoProps = {
-    products: Shop[];
-    sliderClassName: string;
-    spaceBottomClass: string;
-    colorClass: string;
-    titlePriceClass: string;
-    wishlistItems: any[];
+    products?: Shop[];
+    sliderClassName?: string;
+    spaceBottomClass?: string;
+    colorClass?: string;
+    titlePriceClass?: string;
+    wishlistItems?: any[];
 };
 
 const ProductGridTwo = ({
@@ -23,18 +23,19 @@ const ProductGridTwo = ({
 }: ProductGridTwoProps) => {
     return (
         <Fragment>
-            {products.map((product) => {
-                return (
-                    <ProductGridSingleTwo
-                        sliderClassName={sliderClassName}
-                        spaceBottomClass={spaceBottomClass}
-                        colorClass={colorClass}
-                        product={product}
-                        key={product.id}
-                        titlePriceClass={titlePriceClass}
-                    />
-                );
-            })}
+            {products &&
+                products.map((product) => {
+                    return (
+                        <ProductGridSingleTwo
+                            sliderClassName={sliderClassName || ''}
+                            spaceBottomClass={spaceBottomClass || ''}
+                            colorClass={colorClass || ''}
+                            product={product}
+                            key={product.id}
+                            titlePriceClass={titlePriceClass || ''}
+                        />
+                    );
+                })}
         </Fragment>
     );
 };

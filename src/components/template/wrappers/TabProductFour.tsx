@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import SectionTitleThree from '../section-title/SectionTitleThree';
 import ProductGridTwo from './ProductGridTwo';
 import { findIceCreamStores } from '../../../redux/actions/findIceCreamStores';
+import { Dispatch } from 'redux';
 
 type TabProductFourProps = {
     category: string;
@@ -113,31 +114,17 @@ const TabProductFour = ({
                     <Tab.Content>
                         <Tab.Pane eventKey="best_match">
                             <div className="row">
-                                <ProductGridTwo
-                                    category={category}
-                                    type="best_match"
-                                    limit={8}
-                                    spaceBottomClass="mb-25"
-                                />
+                                <ProductGridTwo spaceBottomClass="mb-25" />z
                             </div>
                         </Tab.Pane>
                         <Tab.Pane eventKey="rating">
                             <div className="row">
-                                <ProductGridTwo
-                                    type="rating"
-                                    limit={8}
-                                    spaceBottomClass="mb-25"
-                                />
+                                <ProductGridTwo spaceBottomClass="mb-25" />
                             </div>
                         </Tab.Pane>
                         <Tab.Pane eventKey="review_count">
                             <div className="row">
-                                <ProductGridTwo
-                                    category={category}
-                                    type="review_count"
-                                    limit={8}
-                                    spaceBottomClass="mb-25"
-                                />
+                                <ProductGridTwo spaceBottomClass="mb-25" />
                             </div>
                         </Tab.Pane>
                     </Tab.Content>
@@ -163,10 +150,15 @@ const TabProductFour = ({
     );
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        findIceCreamStoresSortBy: (sort_by, term, location, limit) => {
-            dispatch(findIceCreamStores({ sort_by, term, location, limit }));
+        findIceCreamStoresSortBy: (
+            sort_by: string,
+            term: string,
+            location: string,
+            limit: number
+        ) => {
+            dispatch<any>(findIceCreamStores({ sort_by, term, location, limit }));
         },
     };
 };
