@@ -1,28 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useToasts } from 'react-toast-notifications';
 
 import ProductModal from './ProductModal';
 
 const ProductGridSingleTwo = ({
     product,
-    addToCart,
-    addToWishlist,
-    addToCompare,
-    cartItem,
-    wishlistItem,
-    compareItem,
     sliderClassName,
     spaceBottomClass,
     colorClass,
     titlePriceClass,
 }) => {
     const [modalShow, setModalShow] = useState(false);
-    const { addToast } = useToasts();
-
-    const finalProductPrice = 0;
-    const finalDiscountedPrice = 0;
 
     const imgUrl = product.image_url ? product.image_url : '';
     const hoverImgUrl = product.photos && product.photos.length ? product.photos[1] : '';
@@ -107,14 +96,8 @@ const ProductGridSingleTwo = ({
                         </div>
                         <div className="pro-wishlist-2">
                             <button
-                                className={wishlistItem !== undefined ? 'active' : ''}
-                                disabled={wishlistItem !== undefined}
-                                title={
-                                    wishlistItem !== undefined
-                                        ? 'Added to wishlist'
-                                        : 'Add to wishlist'
-                                }
-                                onClick={() => addToWishlist(product, addToast)}
+                                className={product.name.length % 2 ? 'active' : ''}
+                                title={'Add to wishlist'}
                             >
                                 <i className="fa fa-heart-o" />
                             </button>
@@ -123,21 +106,7 @@ const ProductGridSingleTwo = ({
                 </div>
             </div>
             {/* product modal */}
-            <ProductModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                product={product}
-                currency={{}}
-                finalproductprice={finalProductPrice}
-                finaldiscountedprice={finalDiscountedPrice}
-                cartitem={cartItem}
-                wishlistitem={wishlistItem}
-                compareitem={compareItem}
-                addtocart={addToCart}
-                addtowishlist={addToWishlist}
-                addtocompare={addToCompare}
-                addtoast={addToast}
-            />
+            <ProductModal show={modalShow} onHide={() => setModalShow(false)} product={product} />
         </Fragment>
     );
 };

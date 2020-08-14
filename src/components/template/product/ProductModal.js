@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { Fragment, useState, useEffect } from 'react';
 import Swiper from 'react-id-swiper';
 import { Modal } from 'react-bootstrap';
-import { connect } from 'react-redux';
 
 import Rating from './ProductRating';
 
@@ -170,26 +169,9 @@ function ProductModal(props) {
 }
 
 ProductModal.propTypes = {
-    addtoast: PropTypes.func,
-    addtocart: PropTypes.func,
-    addtocompare: PropTypes.func,
-    addtowishlist: PropTypes.func,
-    cartitems: PropTypes.array,
-    compareitem: PropTypes.object,
-    currency: PropTypes.object,
-    discountedprice: PropTypes.number,
-    finaldiscountedprice: PropTypes.number,
-    finalproductprice: PropTypes.number,
     onHide: PropTypes.func,
     product: PropTypes.object,
     show: PropTypes.bool,
-    wishlistitem: PropTypes.object,
 };
 
-const mapStateToProps = (state) => {
-    return {
-        cartitems: state.cartData,
-    };
-};
-
-export default connect(mapStateToProps)(ProductModal);
+export default ProductModal;
