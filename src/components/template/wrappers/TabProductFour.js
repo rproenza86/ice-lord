@@ -138,6 +138,7 @@ const TabProductFour = ({
                             setLimit(limit * 2);
                             updateSearch();
                         }}
+                        to={process.env.PUBLIC_URL}
                     >
                         VIEW MORE PRODUCTS
                     </Link>

@@ -86,8 +86,27 @@ const ProductGridSingleTwo = ({
                             <h3>
                                 <a href={product.url}>{product.name}</a>
                             </h3>
+
+                            {product.categories && product.categories.length && (
+                                <div className="price-2">
+                                    <span>Category</span>{' '}
+                                    <span className="new">{product.categories[0].title}</span>
+                                </div>
+                            )}
+
                             <div className="price-2">
-                                <span>Rating</span> <span className="new">{product.rating}</span>
+                                {product.rating === 5 ? (
+                                    <strong>
+                                        {' '}
+                                        <span>Rating</span>{' '}
+                                        <span className="new">{product.rating}</span>
+                                    </strong>
+                                ) : (
+                                    <>
+                                        <span>Rating</span>
+                                        <span className="new">{product.rating}</span>
+                                    </>
+                                )}
                             </div>
                         </div>
                         <div className="pro-wishlist-2">

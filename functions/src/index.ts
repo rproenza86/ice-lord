@@ -2,7 +2,9 @@ import * as functions from 'firebase-functions';
 import { YelpBusinesses } from './types/yelp';
 
 const yelp = require('yelp-fusion');
-const client = yelp.client('key');
+const client = yelp.client(
+    'key'
+);
 
 const cors = require('cors')({ origin: true });
 
@@ -40,6 +42,22 @@ export const getIceCreamStoreDetail = functions.https.onRequest((request, respon
             .business(businessId)
             .then((data: any) => {
                 response.send(data.jsonBody as YelpBusinesses);
+            })
+            .catch((e: Error) => {
+                functions.logger.error('Error getting data!', e, { structuredData: true });
+                response.send(e);
+            });
+    });
+});
+
+export const getIceCreamStoreReview = functions.https.onRequest((request, response) => {
+    return cors(request, response, () => {
+        const { businessId } = request.query;
+
+        return client
+            .reviews(businessId)
+            .then((data: any) => {
+                response.send({ ...data.jsonBody, businessId });
             })
             .catch((e: Error) => {
                 functions.logger.error('Error getting data!', e, { structuredData: true });

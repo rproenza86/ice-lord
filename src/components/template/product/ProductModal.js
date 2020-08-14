@@ -11,12 +11,6 @@ function ProductModal(props) {
 
     const [gallerySwiper, getGallerySwiper] = useState(null);
     const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
-    const [selectedProductColor, setSelectedProductColor] = useState(
-        product.variation ? product.variation[0].color : ''
-    );
-    const [selectedProductSize, setSelectedProductSize] = useState(
-        product.variation ? product.variation[0].size[0].name : ''
-    );
 
     useEffect(() => {
         if (
@@ -33,7 +27,7 @@ function ProductModal(props) {
     const gallerySwiperParams = {
         getSwiper: getGallerySwiper,
         spaceBetween: 10,
-        loopedSlides: 4,
+        loopedSlides: 10,
         loop: true,
     };
 
@@ -128,99 +122,44 @@ function ProductModal(props) {
                                 )}
                                 <div className="pro-details-list">
                                     <h3>Location</h3>
-                                    {product.location &&
-                                        product.location.display_address &&
-                                        product.location.display_address.map((value, key) => {
+                                    {product.location && product.location.display_address && (
+                                        <address>
+                                            {product.location.display_address.map((value, key) => {
+                                                return (
+                                                    <p
+                                                        className={
+                                                            'pro-details-color-content--single'
+                                                        }
+                                                        key={key}
+                                                    >
+                                                        {value}
+                                                    </p>
+                                                );
+                                            })}
+                                        </address>
+                                    )}
+
+                                    <h4>Phone</h4>
+                                    <a href={`tel:${product.phone}`}>{product.display_phone}</a>
+                                </div>
+
+                                <div className="pro-details-list">
+                                    <h3>Reviews</h3>
+                                    {product.reviews &&
+                                        product.reviews.map((review, key) => {
                                             return (
-                                                <p
-                                                    className={'pro-details-color-content--single'}
-                                                    key={key}
-                                                >
-                                                    {value}
-                                                </p>
+                                                <blockquote cite="" key={key}>
+                                                    <p>"{review.text}"</p>
+                                                    <footer>
+                                                        — {review.user.name},{' '}
+                                                        <strong>
+                                                            <cite>Rating : {review.rating}</cite>
+                                                        </strong>
+                                                    </footer>
+                                                </blockquote>
                                             );
                                         })}
                                 </div>
-
-                                {product.variation ? (
-                                    <div className="pro-details-size-color">
-                                        <div className="pro-details-color-wrap">
-                                            <span>Color</span>
-                                            <div className="pro-details-color-content">
-                                                {product.variation.map((single, key) => {
-                                                    return (
-                                                        <label
-                                                            className={`pro-details-color-content--single ${single.color}`}
-                                                            key={key}
-                                                        >
-                                                            <input
-                                                                type="radio"
-                                                                value={single.color}
-                                                                name="product-color"
-                                                                checked={
-                                                                    single.color ===
-                                                                    selectedProductColor
-                                                                        ? 'checked'
-                                                                        : ''
-                                                                }
-                                                                onChange={() => {
-                                                                    setSelectedProductColor(
-                                                                        single.color
-                                                                    );
-                                                                    setSelectedProductSize(
-                                                                        single.size[0].name
-                                                                    );
-                                                                }}
-                                                            />
-                                                            <span className="checkmark"></span>
-                                                        </label>
-                                                    );
-                                                })}
-                                            </div>
-                                        </div>
-                                        <div className="pro-details-size">
-                                            <span>Size</span>
-                                            <div className="pro-details-size-content">
-                                                {product.variation &&
-                                                    product.variation.map((single) => {
-                                                        return single.color === selectedProductColor
-                                                            ? single.size.map((singleSize, key) => {
-                                                                  return (
-                                                                      <label
-                                                                          className={`pro-details-size-content--single`}
-                                                                          key={key}
-                                                                      >
-                                                                          <input
-                                                                              type="radio"
-                                                                              value={
-                                                                                  singleSize.name
-                                                                              }
-                                                                              checked={
-                                                                                  singleSize.name ===
-                                                                                  selectedProductSize
-                                                                                      ? 'checked'
-                                                                                      : ''
-                                                                              }
-                                                                              onChange={() => {
-                                                                                  setSelectedProductSize(
-                                                                                      singleSize.name
-                                                                                  );
-                                                                              }}
-                                                                          />
-                                                                          <span className="size-name">
-                                                                              {singleSize.name}
-                                                                          </span>
-                                                                      </label>
-                                                                  );
-                                                              })
-                                                            : '';
-                                                    })}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    ''
-                                )}
                             </div>
                         </div>
                     </div>
