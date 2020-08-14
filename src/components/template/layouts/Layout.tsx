@@ -1,14 +1,15 @@
-import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Footer from '../wrappers/Footer';
 
-const Layout = ({
-    children,
-    headerContainerClass,
-    headerTop,
-    headerBorderStyle,
-    headerPaddingClass,
-}) => {
+type LayoutProps = {
+    children: React.ReactNode;
+    headerBorderStyle: string;
+    headerContainerClass: string;
+    headerPaddingClass: string;
+    headerTop: string;
+};
+
+const Layout = ({ children }: LayoutProps) => {
     return (
         <Fragment>
             {children}
@@ -24,14 +25,6 @@ const Layout = ({
             />
         </Fragment>
     );
-};
-
-Layout.propTypes = {
-    children: PropTypes.any,
-    headerBorderStyle: PropTypes.string,
-    headerContainerClass: PropTypes.string,
-    headerPaddingClass: PropTypes.string,
-    headerTop: PropTypes.string,
 };
 
 export default Layout;

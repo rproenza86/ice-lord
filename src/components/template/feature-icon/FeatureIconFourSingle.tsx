@@ -1,7 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const FeatureIconFourSingle = ({ data, spaceBottomClass }) => {
+type FeatureIconFourSingleProps = {
+    data: {
+        backgroundColor: string;
+        iconImage: string;
+        titleImage: string;
+        title: string;
+    };
+    spaceBottomClass: string;
+};
+
+const FeatureIconFourSingle = ({ data, spaceBottomClass }: FeatureIconFourSingleProps) => {
     return (
         <div className="col-lg-4 col-md-6 col-sm-6">
             <div
@@ -22,11 +31,6 @@ const FeatureIconFourSingle = ({ data, spaceBottomClass }) => {
             </div>
         </div>
     );
-};
-
-FeatureIconFourSingle.propTypes = {
-    data: PropTypes.object,
-    spaceBottomClass: PropTypes.string,
 };
 
 export default FeatureIconFourSingle;

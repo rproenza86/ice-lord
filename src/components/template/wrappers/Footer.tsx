@@ -1,7 +1,18 @@
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { animateScroll } from 'react-scroll';
+
+type FooterProps = {
+    backgroundColorClass: string;
+    copyrightColorClass: string;
+    footerLogo: string;
+    backgroundImage: string;
+    footerTopBackgroundColorClass: string;
+    footerTopSpaceBottomClass: string;
+    footerTopSpaceTopClass: string;
+    spaceLeftClass: string;
+    spaceRightClass: string;
+};
 
 const Footer = ({
     backgroundColorClass,
@@ -13,7 +24,7 @@ const Footer = ({
     footerTopSpaceBottomClass,
     footerLogo,
     backgroundImage,
-}) => {
+}: FooterProps) => {
     const [scroll, setScroll] = useState(0);
     const [top, setTop] = useState(0);
 
@@ -99,18 +110,6 @@ const Footer = ({
             </button>
         </footer>
     );
-};
-
-Footer.propTypes = {
-    backgroundColorClass: PropTypes.string,
-    copyrightColorClass: PropTypes.string,
-    footerLogo: PropTypes.string,
-    backgroundImage: PropTypes.string,
-    footerTopBackgroundColorClass: PropTypes.string,
-    footerTopSpaceBottomClass: PropTypes.string,
-    footerTopSpaceTopClass: PropTypes.string,
-    spaceLeftClass: PropTypes.string,
-    spaceRightClass: PropTypes.string,
 };
 
 export default Footer;

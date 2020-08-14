@@ -1,8 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import featureIconData from '../../../data/feature-icon-four.json';
-import FeatureIconFourSingle from '../feature-icon/FeatureIconFourSingle.js';
+import FeatureIconFourSingle from '../feature-icon/FeatureIconFourSingle';
+
+type FeatureIconFour = {
+    bgImg?: string;
+    containerClass: string;
+    gutterClass: string;
+    responsiveClass?: string;
+    spaceBottomClass: string;
+    spaceTopClass: string;
+};
 
 const FeatureIconFour = ({
     spaceTopClass,
@@ -11,7 +19,7 @@ const FeatureIconFour = ({
     gutterClass,
     responsiveClass,
     bgImg,
-}) => {
+}: FeatureIconFour) => {
     return (
         <div
             className={`support-area hm9-section-padding ${spaceTopClass ? spaceTopClass : ''} ${
@@ -39,15 +47,6 @@ const FeatureIconFour = ({
             </div>
         </div>
     );
-};
-
-FeatureIconFour.propTypes = {
-    bgImg: PropTypes.string,
-    containerClass: PropTypes.string,
-    gutterClass: PropTypes.string,
-    responsiveClass: PropTypes.string,
-    spaceBottomClass: PropTypes.string,
-    spaceTopClass: PropTypes.string,
 };
 
 export default FeatureIconFour;

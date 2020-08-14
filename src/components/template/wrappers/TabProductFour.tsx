@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,18 +8,33 @@ import SectionTitleThree from '../section-title/SectionTitleThree';
 import ProductGridTwo from './ProductGridTwo';
 import { findIceCreamStores } from '../../../redux/actions/findIceCreamStores';
 
+type TabProductFourProps = {
+    category: string;
+    spaceBottomClass: string;
+    productTabClass: string;
+};
+
+type TabProductFourDispatchProps = {
+    findIceCreamStoresSortBy: (
+        sort_by: string,
+        term: string,
+        location: string,
+        limit: number
+    ) => void;
+};
+
 const TabProductFour = ({
     spaceBottomClass,
     category,
     productTabClass,
     findIceCreamStoresSortBy,
-}) => {
+}: TabProductFourProps & TabProductFourDispatchProps) => {
     const [term, setTerms] = useState('ice cream shops');
     const [location, setLocation] = useState('Alpharetta, GA');
     const [sortBy, setSortBy] = useState('rating');
     const [limit, setLimit] = useState(4);
 
-    const updateTabSelection = (sort_by) => {
+    const updateTabSelection = (sort_by: string) => {
         setSortBy(sort_by);
         findIceCreamStoresSortBy(sort_by, term, location, limit);
     };
@@ -110,7 +124,6 @@ const TabProductFour = ({
                         <Tab.Pane eventKey="rating">
                             <div className="row">
                                 <ProductGridTwo
-                                    category={category}
                                     type="rating"
                                     limit={8}
                                     spaceBottomClass="mb-25"
@@ -148,11 +161,6 @@ const TabProductFour = ({
             </div>
         </div>
     );
-};
-
-TabProductFour.propTypes = {
-    category: PropTypes.string,
-    spaceBottomClass: PropTypes.string,
 };
 
 const mapDispatchToProps = (dispatch) => {

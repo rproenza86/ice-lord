@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Swiper from 'react-id-swiper';
 
 import sliderData from '../../../data/hero-slider-five.json';
-import HeroSliderFiveSingle from '../hero-slider/HeroSliderFiveSingle.js';
+import HeroSliderFiveSingle from '../hero-slider/HeroSliderFiveSingle';
 
-const HeroSliderFive = ({ spaceLeftClass, spaceRightClass }) => {
+type HeroSliderFiveProps = {
+    spaceLeftClass: string;
+    spaceRightClass: string;
+};
+
+const HeroSliderFive = ({ spaceLeftClass, spaceRightClass }: HeroSliderFiveProps) => {
     const params = {
         effect: 'fade',
         loop: true,
@@ -52,11 +56,6 @@ const HeroSliderFive = ({ spaceLeftClass, spaceRightClass }) => {
             </div>
         </div>
     );
-};
-
-HeroSliderFive.propTypes = {
-    spaceLeftClass: PropTypes.string,
-    spaceRightClass: PropTypes.string,
 };
 
 export default HeroSliderFive;
