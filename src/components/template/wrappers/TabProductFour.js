@@ -135,8 +135,10 @@ const TabProductFour = ({
                         onClick={(event) => {
                             event.preventDefault();
 
-                            setLimit(limit * 2);
-                            updateSearch();
+                            const newLimit = limit * 2;
+
+                            setLimit(newLimit);
+                            findIceCreamStoresSortBy(sortBy, term, location, newLimit);
                         }}
                         to={process.env.PUBLIC_URL}
                     >

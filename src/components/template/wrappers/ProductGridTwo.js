@@ -4,19 +4,10 @@ import { connect } from 'react-redux';
 
 import ProductGridSingleTwo from '../product/ProductGridSingleTwo';
 
-import { addToCart } from '../../../redux/actions/cartActions';
-import { addToWishlist } from '../../../redux/actions/wishlistActions';
-import { addToCompare } from '../../../redux/actions/compareActions';
 
 const ProductGridTwo = ({
     products,
     currency,
-    addToCart,
-    addToWishlist,
-    addToCompare,
-    cartItems,
-    wishlistItems,
-    compareItems,
     sliderClassName,
     spaceBottomClass,
     colorClass,
@@ -32,18 +23,6 @@ const ProductGridTwo = ({
                         colorClass={colorClass}
                         product={product}
                         currency={currency}
-                        addToCart={addToCart}
-                        addToWishlist={addToWishlist}
-                        addToCompare={addToCompare}
-                        cartItem={cartItems.filter((cartItem) => cartItem.id === product.id)[0]}
-                        wishlistItem={
-                            wishlistItems.filter(
-                                (wishlistItem) => wishlistItem.id === product.id
-                            )[0]
-                        }
-                        compareItem={
-                            compareItems.filter((compareItem) => compareItem.id === product.id)[0]
-                        }
                         key={product.id}
                         titlePriceClass={titlePriceClass}
                     />
@@ -54,11 +33,6 @@ const ProductGridTwo = ({
 };
 
 ProductGridTwo.propTypes = {
-    addToCart: PropTypes.func,
-    addToCompare: PropTypes.func,
-    addToWishlist: PropTypes.func,
-    cartItems: PropTypes.array,
-    compareItems: PropTypes.array,
     currency: PropTypes.object,
     products: PropTypes.array,
     sliderClassName: PropTypes.string,
@@ -70,12 +44,6 @@ ProductGridTwo.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        // products: getProducts(
-        //     state.shops,
-        //     ownProps.category,
-        //     ownProps.type,
-        //     ownProps.limit
-        // ),
         products: state.shops,
         currency: state.currencyData,
         cartItems: state.cartData,
@@ -84,20 +52,4 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (item, addToast, quantityCount, selectedProductColor, selectedProductSize) => {
-            dispatch(
-                addToCart(item, addToast, quantityCount, selectedProductColor, selectedProductSize)
-            );
-        },
-        addToWishlist: (item, addToast) => {
-            dispatch(addToWishlist(item, addToast));
-        },
-        addToCompare: (item, addToast) => {
-            dispatch(addToCompare(item, addToast));
-        },
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductGridTwo);
+export default connect(mapStateToProps, null)(ProductGridTwo);

@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
-import { getDiscountPrice } from '../../../helpers/product';
 import ProductModal from './ProductModal';
 
 const ProductGridSingleTwo = ({
@@ -22,13 +21,10 @@ const ProductGridSingleTwo = ({
     const [modalShow, setModalShow] = useState(false);
     const { addToast } = useToasts();
 
-    const discountedPrice = getDiscountPrice(product.price, product.discount);
     const finalProductPrice = 0;
     const finalDiscountedPrice = 0;
 
-    const imgUrl = product.image_url
-        ? product.image_url
-        : process.env.PUBLIC_URL + product.image[0];
+    const imgUrl = product.image_url ? product.image_url : '';
     const hoverImgUrl = product.photos && product.photos.length ? product.photos[1] : '';
 
     return (
@@ -132,7 +128,6 @@ const ProductGridSingleTwo = ({
                 onHide={() => setModalShow(false)}
                 product={product}
                 currency={{}}
-                discountedprice={discountedPrice}
                 finalproductprice={finalProductPrice}
                 finaldiscountedprice={finalDiscountedPrice}
                 cartitem={cartItem}
