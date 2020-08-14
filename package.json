@@ -1,7 +1,19 @@
 {
-    "name": "ice-cream-lord",
+    "name": "@rproenza/ice-cream-lord",
     "version": "0.1.0",
     "private": true,
+    "description": "ICE Lord Reign is the Best Ice Cream Shop Locator Web App",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rproenza86/ice-lord.git"
+    },
+    "keywords": [],
+    "author": "Raul Rodriguez Proenza <raul.r.proenza@gmail.com> (https://github.com/rproenza86)",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/rproenza86/ice-lord/issues"
+    },
+    "homepage": "https://ice-lord.web.app",
     "dependencies": {
         "animate.css": "^3.7.2",
         "axios": "^0.19.0",
