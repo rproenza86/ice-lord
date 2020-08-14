@@ -2,9 +2,7 @@ import * as functions from 'firebase-functions';
 import { YelpBusinesses } from './types/yelp';
 
 const yelp = require('yelp-fusion');
-const client = yelp.client(
-    'key'
-);
+const client = yelp.client(functions.config().yelp_fusion_api.key);
 
 const cors = require('cors')({ origin: true });
 
