@@ -1,5 +1,14 @@
 import axios from 'axios';
+import { Dispatch } from 'react';
+
+import { Shop } from '../reducers/shops/types';
+
 export const FETCH_STORES_SUCCESS = 'FETCH_STORES_SUCCESS';
+
+interface FindIceCreamStoresAction {
+    type: typeof FETCH_STORES_SUCCESS;
+    payload: { total: number; shops: Shop[] };
+}
 
 export const findIceCreamStores = (
     { sort_by, term, location, limit } = {
@@ -9,16 +18,10 @@ export const findIceCreamStores = (
         location: 'Alpharetta, GA',
     }
 ) => {
-    return (dispatch) => {
+    return (dispatch: Dispatch<FindIceCreamStoresAction>) => {
         axios
             .get(
-                `https://us-central1-ice-lord.cloudfunctions.net/findIceCreamStores?sort_by=${sort_by}&term=${term}&location=${location}&limit=${limit}`,
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    },
-                    crossdomain: true,
-                }
+                `https://us-central1-ice-lord.cloudfunctions.net/findIceCreamStores?sort_by=${sort_by}&term=${term}&location=${location}&limit=${limit}`
             )
             .then((response) => {
                 const { businesses: shops, total } = response.data;
@@ -33,3 +36,5 @@ export const findIceCreamStores = (
             });
     };
 };
+
+export type FindStoresActionTypes = FindIceCreamStoresAction;

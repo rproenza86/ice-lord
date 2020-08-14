@@ -1,10 +1,22 @@
-import { FETCH_STORES_SUCCESS } from '../actions/findIceCreamStores';
-import { FETCH_STORE_DETAILS_SUCCESS } from '../actions/getIceCreamStoreDetails';
-import { FETCH_STORE_REVIEWS__SUCCESS } from '../actions/getIceCreamStoreReview';
+import { FETCH_STORES_SUCCESS, FindStoresActionTypes } from '../../actions/findIceCreamStores';
+import {
+    FETCH_STORE_DETAILS_SUCCESS,
+    GetIceCreamStoreDetailsActionTypes,
+} from '../../actions/getIceCreamStoreDetails';
+import {
+    FETCH_STORE_REVIEWS__SUCCESS,
+    GetIceCreamStoreReviewActionTypes,
+} from '../../actions/getIceCreamStoreReview';
+import { ShopsState } from './types';
 
-const initState = [];
+const initState: ShopsState = [];
 
-const shopsReducer = (state = initState, action) => {
+type ShopsActionTypes =
+    | FindStoresActionTypes
+    | GetIceCreamStoreDetailsActionTypes
+    | GetIceCreamStoreReviewActionTypes;
+
+const shopsReducer = (state = initState, action: ShopsActionTypes): ShopsState => {
     if (action.type === FETCH_STORES_SUCCESS) {
         if (action.payload && action.payload.shops) {
             return [...action.payload.shops];
