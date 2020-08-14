@@ -57,15 +57,19 @@ const Footer = ({
                                 alt=""
                                 src={
                                     process.env.PUBLIC_URL +
-                                    `${footerLogo ? footerLogo : '/assets/img/logo/logo.png'}`
+                                    `${'/assets/img/logo/ice-lord-log.png'}`
                                 }
                             />
                         </Link>
                     </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    </p>
+
+                    <blockquote cite="">
+                        <p>
+                            "One of the very nicest things about life is the way we must regularly
+                            stop whatever it is we are doing and devote our attention to eating."
+                        </p>
+                        <footer>— Luciano Pavarotti</footer>
+                    </blockquote>
                 </div>
             </div>
             <div className="footer-bottom text-center">
@@ -75,8 +79,12 @@ const Footer = ({
                     >
                         <p>
                             © 2020{' '}
-                            <a href="//www.hasthemes.com" rel="noopener noreferrer" target="_blank">
-                                Flone
+                            <a
+                                href="https://raulproenza.page/"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                ICE Lord Reign
                             </a>
                             . All Rights Reserved.
                         </p>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 import { getDiscountPrice } from '../../../helpers/product';
@@ -44,7 +44,13 @@ const ProductGridSingleTwo = ({
                     } `}
                 >
                     <div className="product-img">
-                        <Link to={process.env.PUBLIC_URL + '/product/' + product.id}>
+                        <Link
+                            to={process.env.PUBLIC_URL + '/product/' + product.id}
+                            onClick={(event) => {
+                                setModalShow(true);
+                                event.preventDefault();
+                            }}
+                        >
                             <img className="default-img" src={imgUrl} alt="" />
                             {hoverImgUrl ? (
                                 <img className="hover-img" src={hoverImgUrl} alt="" />
@@ -78,7 +84,7 @@ const ProductGridSingleTwo = ({
                             }`}
                         >
                             <h3>
-                                <Link to={product.url}>{product.name}</Link>
+                                <a href={product.url}>{product.name}</a>
                             </h3>
                             <div className="price-2">
                                 <span>Rating</span> <span className="new">{product.rating}</span>

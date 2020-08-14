@@ -17,7 +17,11 @@ const HeroSliderFiveSingle = ({ data, sliderClass }) => {
                             <h3 className="animated">{data.title}</h3>
                             <h1 className="animated">{data.subtitle}</h1>
                             <div className="slider-btn btn-hover">
-                                <Link className="animated" to={process.env.PUBLIC_URL + data.url}>
+                                <Link
+                                    className="animated"
+                                    to={process.env.PUBLIC_URL + data.url}
+                                    onClick={(event) => event.preventDefault()}
+                                >
                                     SHOP NOW
                                 </Link>
                             </div>
